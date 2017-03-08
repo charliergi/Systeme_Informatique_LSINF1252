@@ -5,8 +5,8 @@
 
 
 ////// QUESTION 2 ///////////////
-//CREATE ecrit pour creer des variables qui creent le thread --> besoin de pointeur
-//JOIN veut juste lire les données donc pas besoin de modifier. --> pas besoin de pointeur
+//CREATE ecrit pour creer des variables qui creent le thread --> besoin de pointeur.
+//JOIN veut juste lire les données donc pas besoin de modifier. --> pas besoin de pointeur.
 
 /////////// QUESTION 1 ///////////////
 // (void *) est le type nécessaire pour passer en paramètre des arguments pour une methode executee par le thread en QUESTION
