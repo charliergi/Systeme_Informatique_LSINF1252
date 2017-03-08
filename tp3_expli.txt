@@ -1,0 +1,22 @@
+%%%%%%%%%---QUESTION 1-----%%%%%%%%%%%
+malloc initialise pas alors que calloc initialise
+--> calloc est donc plus lent
+----------- QUESTION 2 ------------
+inutile d'initialiser avec Calloc car on initialise quand même apres aussi.
+-----------QUESTION 3 A-------------
+
+-----------QUESTION 3 B ------------
+1) si on recoit juste un pointeur vers une structure qui est dans la heap, 
+alors on peut modifier les valeurs du pointeur comme on veut et c'est conseillé.
+2) si pas modifier node-t et qu'on recoit fract_t en argument (toute une structure ! )
+On doit faire malloc de la size du faction-t pour stocker la structure dans
+la heap.
+/!\ alors ce qu'il y a dans la stack sera different de ce qu'il y a dans la heap. FAIRE ATTENTION.
+
+----------- QUESTION 4 --------------------
+push(struct stack *s, struct fraction_t elem)
+--> variable globale déclarée à la compilation --> pour l'exemple d'une stack pour chacun d'un groupe indéfini d'utilisateurs. 
+on ne sait pas combien d'utilisateurs nous avons, donc on ne peut pas déclarer le nombre 
+correct de stacks qu'on a besoin à la compilation, avant de declarer combien d'utilisateurs on aura.
+--> Si juste pointeur, on peut créer des stacks dynamiquement, pour chaque utilisateur (a la compilation).
+

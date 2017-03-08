@@ -1,0 +1,14 @@
+----- QUESTION 6 -------
+Chaque variable prend un certain nombre de bytes
+ex : char = 1 byte
+long = 8 bytes etc
+typedef struct {
+	char c;
+	long l;
+	short s;
+}
+--> c|---- 7 bytes vides ---|l|l|l|l|l|l|l|l|s|s
+--> pas opti car  il y a 7 bytes vides.
+--> si on change l'ordre des variables dans les structures, ca peut etre plus opti long/short/char...
+--> gcc avec option -packed permet de réarranger mieux.
+
