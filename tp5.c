@@ -19,31 +19,30 @@ struct charint{
 // fonction a executer dans le thread
 void *f(void * ci){ 
     struct charint* cis = (struct charint *) ci;
-    printf("%d, %i\n", cis->i, cis->c);
+    //printf("%d, %i\n", cis->i, cis->c);
     return NULL; // ??? on est sense retourner un pointeur void*.
 }
  int main(){
-// declarer la structure
-struct charint ci;
-ci.i = 1;
-ci.c = 's';
-int count = 0;
-while(count<1000000){
-    pthread_t thread ; // on a mis le thread complet sur la stack (donc pas thread_t *thread qui renvoie un pointeur vers nulle part)
+    // declarer la structure
+    struct charint ci;
+    ci.i = 1;
+    ci.c = 's';
+    int count = 0;
+    while(count<1000000){
+        pthread_t thread ; // on a mis le thread complet sur la stack (donc pas thread_t *thread qui renvoie un pointeur vers nulle part)
 
 
-    int x  = pthread_create(&thread,NULL, &f, (void *) &ci );
-    if (!x) {// renvoie l'adresse vers la stack (NULL pour les arguments, regarder manpage pour infos,   )
-    pthread_join(thread, NULL);
-    count ++ ;  
-    return EXIT_SUCCESS;
+        int x  = pthread_create(&thread,NULL, &f, (void *) &ci );
+        if (!x) {// renvoie l'adresse vers la stack (NULL pour les arguments, regarder manpage pour infos,   )
+            //pthread_join(thread, NULL);
+            count ++ ;  
+        }
+        else{
+            printf("%d\n", count); 
+            return EXIT_FAILURE;
+        }
     }
-    else{
-        return EXIT_FAILURE;
-    }
-}
-printf("%d", count); 
-return 0;
+return EXIT_SUCCESS;
 }
 
 //// QESTION 6 //////////////
